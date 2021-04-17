@@ -8,30 +8,41 @@ class Button extends StatelessWidget {
   final String text;
   final bool big;
   final Color color;
+  final void Function(String) callback;
 
   Button({
     required this.text,
     this.big = false,
     this.color = DEFAULT,
+    required this.callback,
   });
-  Button.big({
+
+  Button.operation({
     required this.text,
-    this.big = true,
-    this.color = DEFAULT,
+    this.big = false,
+    this.color = OPERATION,
+    required this.callback,
+  });
+
+  Button.dark({
+    required this.text,
+    this.big = false,
+    this.color = DARK,
+    required this.callback,
   });
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
         flex: big ? 2 : 1,
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(primary: DEFAULT),
+        child: RaisedButton(
+          color: this.color,
           child: Text(
             text,
             style: TextStyle(
-                color: Colors.white, fontSize: 32, fontWeight: FontWeight.w300),
+                color: Colors.white, fontSize: 32, fontWeight: FontWeight.w200),
           ),
-          onPressed: () {},
+          onPressed: () => callback(text),
         ));
   }
 }

@@ -28,7 +28,7 @@ class Display extends StatelessWidget {
                         decoration: TextDecoration.none,
                         fontWeight: FontWeight.w100,
                         fontSize: 80,
-                        fontFamily: 'Poppins-Thin',
+                        fontFamily: 'Poppins',
                         color: Colors.white),
                   ),
                 ),
